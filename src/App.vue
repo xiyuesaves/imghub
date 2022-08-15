@@ -12,14 +12,15 @@
 </template>
 
 <script>
-import { remote } from 'electron'
+// import { remote } from 'electron'
+// const { app } = remote;
 import FolderColumn from "./components/FolderColumn.vue"
 import MainView from "./components/MainView.vue"
 import FileData from "./components/FileData.vue"
 import { mapState } from 'vuex'
 import fs from 'fs'
-// import Database from 'better-sqlite3'
-// const db = new Database('assets.db')
+import Database from 'better-sqlite3'
+const db = new Database('images_merge.db')
 export default {
   name: 'App',
   components: {
@@ -40,7 +41,7 @@ export default {
   created() {
     console.log(this.type, fs)
     this.init();
-    console.log(remote)
+    console.log(db)
   }
 }
 </script>
