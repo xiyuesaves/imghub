@@ -12,15 +12,21 @@
 </template>
 
 <script>
-// import { remote } from 'electron'
-// const { app } = remote;
-import FolderColumn from "./components/FolderColumn.vue"
-import MainView from "./components/MainView.vue"
-import FileData from "./components/FileData.vue"
+// 引入库
+import { remote } from 'electron'
+import { join } from "path"
 import { mapState } from 'vuex'
 import fs from 'fs'
 import Database from 'better-sqlite3'
-const db = new Database('images_merge.db')
+const { app } = remote;
+const db = new Database(join(app.getPath("userData"), 'images_merge.db'))
+console.log("配置路径", app.getPath("userData"))
+
+// 引入组件
+import FolderColumn from "./components/FolderColumn.vue"
+import MainView from "./components/MainView.vue"
+import FileData from "./components/FileData.vue"
+
 export default {
   name: 'App',
   components: {
@@ -35,7 +41,7 @@ export default {
   },
   methods: {
     async init() {
-      // let dataPath = await  ipcMain.handle()
+      
     }
   },
   created() {
