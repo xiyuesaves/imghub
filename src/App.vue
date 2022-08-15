@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="dark-theme">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <!-- 提示组件 -->
+    <TooltipView></TooltipView>
     <!-- 左侧文件夹栏 -->
     <FolderColumn></FolderColumn>
     <!-- 主要视图 -->
@@ -21,18 +21,21 @@ import Database from 'better-sqlite3'
 const { app } = remote;
 const db = new Database(join(app.getPath("userData"), 'images_merge.db'))
 console.log("配置路径", app.getPath("userData"))
+import DefaultSettings from '../setting'
 
 // 引入组件
 import FolderColumn from "./components/FolderColumn.vue"
 import MainView from "./components/MainView.vue"
 import FileData from "./components/FileData.vue"
+import TooltipView from "./components/TooltipView.vue"
 
 export default {
   name: 'App',
   components: {
     FolderColumn,
     MainView,
-    FileData
+    FileData,
+    TooltipView,
   },
   computed: {
     ...mapState({
@@ -41,13 +44,14 @@ export default {
   },
   methods: {
     async init() {
-      
+
     }
   },
   created() {
     console.log(this.type, fs)
     this.init();
     console.log(db)
+    console.log(DefaultSettings)
   }
 }
 </script>
