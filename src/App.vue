@@ -1,37 +1,62 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="dark-theme">
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <!-- 左侧文件夹栏 -->
+    <FolderColumn></FolderColumn>
+    <!-- 主要视图 -->
+    <MainView></MainView>
+    <!-- 文件属性 -->
+    <FileData></FileData>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { remote } from 'electron'
+import FolderColumn from "./components/FolderColumn.vue"
+import MainView from "./components/MainView.vue"
+import FileData from "./components/FileData.vue"
 import { mapState } from 'vuex'
+import fs from 'fs'
+// import Database from 'better-sqlite3'
+// const db = new Database('assets.db')
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FolderColumn,
+    MainView,
+    FileData
   },
-  computed:{
+  computed: {
     ...mapState({
       type: state => state.type
     })
   },
-  created(){
-    console.log(this.type)
+  methods: {
+    async init() {
+      // let dataPath = await  ipcMain.handle()
+    }
+  },
+  created() {
+    console.log(this.type, fs)
+    this.init();
+    console.log(remote)
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+body {
+  margin: 0;
+}
 
+#app {
+  width: 100vw;
+  height: 100vh;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 </style>

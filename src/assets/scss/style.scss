@@ -1,0 +1,9 @@
+// 默认背景色
+$darkBackgroundColor: #373839;
+// 默认文本颜色
+$darkTextColor: #d7d7db;
+
+.dark-theme {
+    color: $darkTextColor;
+    background-color: $darkBackgroundColor;
+}
