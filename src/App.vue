@@ -7,11 +7,19 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import { mapState } from 'vuex'
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  computed:{
+    ...mapState({
+      type: state => state.type
+    })
+  },
+  created(){
+    console.log(this.type)
   }
 }
 </script>
@@ -24,5 +32,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
 }
 </style>
