@@ -5,5 +5,12 @@ module.exports = defineConfig({
     electronBuilder: {
       nodeIntegration: true
     }
-  }
+  },
+  css: {
+    loaderOptions: {
+       sass: {
+           additionalData:`@import "./src/assets/scss/style.scss";` 
+           }
+       }
+   }
 })

@@ -18,13 +18,14 @@ async function createWindow() {
     width: 1200,
     height: 600,
     center: true,
-    titleBarStyle: 'hidden', // 隐藏标题栏
+    // titleBarStyle: 'hidden', // 隐藏标题栏
     titleBarOverlay: {
       color: "#fff",
       height: 10
     }, // 隐藏顶栏时显示控制按钮
     webPreferences: {
-
+      // 在渲染进程启用Remote
+      enableRemoteModule: true,
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
