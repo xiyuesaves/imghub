@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="dark-theme">
+  <div id="app" class="default-theme dark-theme">
     <!-- 提示组件 -->
     <TooltipView></TooltipView>
     <!-- 左侧文件夹栏 -->
