@@ -1,14 +1,18 @@
 // 默认背景色
 $darkBackgroundColor: #373839;
 // 边框颜色
-$darkBorderColor: #545557;
+$darkBorderColor: #2c2c2c;
 // 默认文本颜色
 $darkTextColor: #d7d7db;
+// 区分背景色
+$darkFloderBackgroundColor: #3d3d3d;
 
-.default-theme{
+.default-theme {
+
     // border: solid 1px;
-    *{
-        border-radius: 8px;
+    * {
+        // border-radius: 8px;
+        border-color: $darkBorderColor;
     }
 }
 
@@ -16,4 +20,7 @@ $darkTextColor: #d7d7db;
     color: $darkTextColor;
     background-color: $darkBackgroundColor;
     border-color: $darkBorderColor;
+    .floder-bg {
+        background-color: $darkFloderBackgroundColor;
+    }
 }

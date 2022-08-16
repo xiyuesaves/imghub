@@ -1,5 +1,8 @@
 <template>
   <div id="app" class="default-theme dark-theme">
+    <div class="top-bar">
+
+    </div>
     <!-- 提示组件 -->
     <TooltipView></TooltipView>
     <!-- 左侧文件夹栏 -->
@@ -57,17 +60,52 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/icon/iconfont.css';
+$topbarHeight: 30px;
+
+
 body {
   margin: 0;
-}
 
-#app {
-  width: 100vw;
-  height: 100vh;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  margin-top: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  * {
+    box-sizing: border-box;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  #app {
+    width: 100vw;
+    height: 100vh;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: $topbarHeight;
+    user-select: none;
+
+    .top-bar {
+      -webkit-app-region: drag;
+      width: 100%;
+      position: fixed;
+      z-index: 9981;
+      top: 0;
+      left: 0;
+      height: $topbarHeight;
+      background-color: #2c2c2c;
+    }
+
+    .of-ele {
+      width: 100%; //自己调整
+      word-break: keep-all;
+      /* 不换行 */
+      white-space: nowrap;
+      /* 不换行 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }
 </style>

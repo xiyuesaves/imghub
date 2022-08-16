@@ -18,7 +18,7 @@ async function createWindow() {
     width: 1200,
     height: 600,
     center: true,
-    // titleBarStyle: 'hidden', // 隐藏标题栏
+    titleBarStyle: 'hidden', // 隐藏标题栏
     titleBarOverlay: {
       color: "#fff",
       height: 10
