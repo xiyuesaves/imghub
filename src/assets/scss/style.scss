@@ -1,9 +1,19 @@
 // 默认背景色
 $darkBackgroundColor: #373839;
+// 边框颜色
+$darkBorderColor: #545557;
 // 默认文本颜色
 $darkTextColor: #d7d7db;
+
+.default-theme{
+    // border: solid 1px;
+    *{
+        border-radius: 8px;
+    }
+}
 
 .dark-theme {
     color: $darkTextColor;
     background-color: $darkBackgroundColor;
+    border-color: $darkBorderColor;
 }
